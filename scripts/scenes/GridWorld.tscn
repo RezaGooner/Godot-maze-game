@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://36x8fj51lgbc"]
+
+[ext_resource type="Script" uid="uid://d0c3nwr123jae" path="res://scripts/GridWorld.gd" id="1_mxctv"]
+[ext_resource type="Script" uid="uid://dpydok7aeyxmq" path="res://scripts/Cell.gd" id="2_8ip6s"]
+[ext_resource type="Script" uid="uid://c6vy7ns2pdxel" path="res://scripts/Player.gd" id="2_e1a03"]
+[ext_resource type="Texture2D" uid="uid://cjcg8pre0acj8" path="res://assets/Floor.png" id="3_s7nl4"]
+[ext_resource type="Texture2D" uid="uid://hgcuvlqo64ic" path="res://assets/Wall.png" id="4_atskf"]
+[ext_resource type="Texture2D" uid="uid://dr53uhw86gk1f" path="res://assets/Reward.png" id="5_ocan4"]
+[ext_resource type="Texture2D" uid="uid://bgur646bmcdd4" path="res://assets/Penalty.png" id="6_rywid"]
+[ext_resource type="Texture2D" uid="uid://xpsygkombodj" path="res://assets/Goal.png" id="7_s7nl4"]
+[ext_resource type="Texture2D" uid="uid://dh7yr8x5lmcvy" path="res://assets/player_left.png" id="9_5on7i"]
+[ext_resource type="Texture2D" uid="uid://cxput8frsoigl" path="res://assets/player_right.png" id="10_g4qc5"]
+[ext_resource type="Texture2D" uid="uid://b74pc4hb8366f" path="res://assets/player_up.png" id="11_7ku3g"]
+[ext_resource type="Texture2D" uid="uid://cs4sur3v3wgg5" path="res://assets/player_down.png" id="12_sa5mx"]
+
+[node name="GridWorld" type="Node2D" unique_id=2088442112]
+script = ExtResource("1_mxctv")
+movement_duration = 0.3
+floor_texture = ExtResource("3_s7nl4")
+use_floor_texture = true
+wall_texture = ExtResource("4_atskf")
+use_wall_texture = true
+reward_texture = ExtResource("5_ocan4")
+use_reward_texture = true
+penalty_texture = ExtResource("6_rywid")
+use_penalty_texture = true
+goal_texture = ExtResource("7_s7nl4")
+use_goal_texture = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1680352334]
+
+[node name="World" type="Node2D" parent="." unique_id=1016957107]
+
+[node name="Cells" type="Node2D" parent="." unique_id=290982303]
+script = ExtResource("2_8ip6s")
+floor_texture = ExtResource("3_s7nl4")
+use_floor_texture = true
+wall_texture = ExtResource("4_atskf")
+reward_texture = ExtResource("5_ocan4")
+penalty_texture = ExtResource("6_rywid")
+goal_texture = ExtResource("7_s7nl4")
+
+[node name="Player" type="Node2D" parent="." unique_id=1483589710]
+script = ExtResource("2_e1a03")
+left_texture = ExtResource("9_5on7i")
+right_texture = ExtResource("10_g4qc5")
+up_texture = ExtResource("11_7ku3g")
+down_texture = ExtResource("12_sa5mx")
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=961937600]
+
+[node name="StatusLabel" type="Label" parent="HUDLayer" unique_id=2135073966]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 149.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 24
+text = "Find Goal"
+metadata/_edit_use_anchors_ = true
+
+[node name="MessageLabel" type="Label" parent="HUDLayer" unique_id=1199997530]
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 540.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="RewardLabel" type="Label" parent="HUDLayer" unique_id=1262403960]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+text = "Reward: 0"
+metadata/_edit_use_anchors_ = true

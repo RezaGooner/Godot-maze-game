@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://daydnui185opp"]
+
+[ext_resource type="Script" uid="uid://basvu1twj2iho" path="res://scripts/StartMenu.gd" id="1_rvslj"]
+[ext_resource type="PackedScene" path="res://GridWorld.tscn" id="2_0bbpv"]
+
+[node name="Main" type="Control" unique_id=153737381]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" type="Control" parent="." unique_id=77217248]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rvslj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu" unique_id=1720850024]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EasyButton" type="Button" parent="StartMenu/VBoxContainer" unique_id=1965285091]
+layout_mode = 2
+text = "Easy"
+
+[node name="MediumButton" type="Button" parent="StartMenu/VBoxContainer" unique_id=1743027387]
+layout_mode = 2
+text = "Medium"
+
+[node name="HardButton" type="Button" parent="StartMenu/VBoxContainer" unique_id=795245928]
+layout_mode = 2
+text = "Hard"
+
+[node name="VeryHardButton" type="Button" parent="StartMenu/VBoxContainer" unique_id=1165802087]
+layout_mode = 2
+text = "Very Hard"
+
+[node name="DescriptionLabel" type="Label" parent="StartMenu/VBoxContainer" unique_id=2136092252]
+layout_mode = 2
+text = "Select Game Level
+
+Easy:
+Greater visibility, simpler maze, lower movement cost
+
+Medium:
+Reduced visibility, more complex maze, higher movement cost
+
+Hard:
+Limited visibility, intricate paths, high movement cost
+
+Very Hard:
+Same as Hard, but the exit location is randomized"
+
+[node name="Game" type="Node2D" parent="." unique_id=922224643]
+visible = false
+
+[node name="GridWorld" parent="Game" unique_id=2088442112 instance=ExtResource("2_0bbpv")]
